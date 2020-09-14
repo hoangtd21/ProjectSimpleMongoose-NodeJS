@@ -1,0 +1,32 @@
+
+<% include template/header %> 
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1 class="display-3">Xem dữ liệu</h1>
+            <p class="lead">MongoDB</p>
+            <hr class="my-2">
+        </div>
+        <table class="table table-striped table-inverse ">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>Tên</th>
+                    <th>Tuổi</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <% data.forEach(function (motphantu) { %>
+
+                    <tr>
+                        <td scope="row"><%= motphantu.ten %></td>
+                        <td><%= motphantu.tuoi %></td>
+                        <td>
+                          <a href="/sua/<%= motphantu._id %> "><i class="fa fa-pencil" aria-hidden="true"></i></a> / 
+                          <a onclick="return shouldRemove('Bạn chắc chắn muốn xóa không?'); " href="/xoa/<%= motphantu._id %>"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                    </tr>
+
+                    <% }) %> 
+                </tbody>
+        </table>
+   </div>
+   <% include template/footer %> 
